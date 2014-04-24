@@ -1,0 +1,24 @@
+#node 
+sudo apt-add-repository ppa:chris-lea/node.js
+
+#express
+npm install express
+npm install express-generator
+
+#site bootstrap
+~/node_modules/express-generator/bin/express ngodin
+cd ngodin
+
+# add missing dependencies vim package.json
+npm install
+
+#mongo db
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+sudo apt-get update
+sudo apt-get install mongodb-org
+
+#populate mongo db
+mongo
+### db.usercollection.insert({ "username" : "testuser1", "email" : "testuser1@testdomain.com" })
+### db.usercollection.find().pretty()
